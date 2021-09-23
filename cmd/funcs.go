@@ -143,7 +143,7 @@ func cmdLive(fl Flags) (int, error) {
 		if resp.Code != blhelper.HTTPCodeSuccess {
 			return blhelper.ExitCodeErrorRun, fmt.Errorf("start live err: %v", resp.ErrorMessage)
 		}
-		fmt.Printf("live started\nrtmp address:\t%s\ncode:\t%s\n",resp.Data.Rtmp.Addr, resp.Data.Rtmp.Code)
+		fmt.Printf("live started\nrtmp address:\t%s\ncode:\t%s\n", resp.Data.Rtmp.Addr, resp.Data.Rtmp.Code)
 		return blhelper.ExitCodeSuccess, nil
 	}
 
@@ -160,8 +160,8 @@ func cmdLive(fl Flags) (int, error) {
 	}
 
 	if titleFlag != "" {
-		resp, err := apiRequest("", http.MethodPost, "/SetTitle", map[string]string{"title":titleFlag})
-		if err !=nil{
+		resp, err := apiRequest("", http.MethodPost, "/SetTitle", map[string]string{"title": titleFlag})
+		if err != nil {
 			return blhelper.ExitCodeErrorRun, err
 		}
 		if resp.Code != blhelper.HTTPCodeSuccess {

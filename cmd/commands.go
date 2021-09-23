@@ -25,40 +25,40 @@ func init() {
 		Usage: "<command>",
 	})
 	RegisterCommand(Command{
-		Name: "start",
-		Func: cmdStart,
+		Name:  "start",
+		Func:  cmdStart,
 		Short: "start in background",
 		Usage: "",
 	})
 	RegisterCommand(Command{
-		Name: "run",
-		Func: cmdRun,
+		Name:  "run",
+		Func:  cmdRun,
 		Short: "run server forground",
 		Usage: "[--pingback <address>]",
-		Flags: func () *flag.FlagSet {
+		Flags: func() *flag.FlagSet {
 			fl := flag.NewFlagSet("run", flag.ExitOnError)
 			fl.String("pingback", "", "ping back to given address when start")
 			return fl
 		}(),
 	})
 	RegisterCommand(Command{
-		Name: "stop",
-		Func: cmdStop,
+		Name:  "stop",
+		Func:  cmdStop,
 		Short: "stop server",
 		Usage: "",
 	})
 	RegisterCommand(Command{
-		Name: "login",
-		Func: cmdLogin,
+		Name:  "login",
+		Func:  cmdLogin,
 		Short: "login by qr",
 		Usage: "",
 	})
 	RegisterCommand(Command{
-		Name: "live",
-		Func: cmdLive,
+		Name:  "live",
+		Func:  cmdLive,
 		Short: "manage live room",
 		Usage: "[--info] [--set-title <title>] [--start <area_number>] [--stop]",
-		Flags: func () *flag.FlagSet {
+		Flags: func() *flag.FlagSet {
 			fl := flag.NewFlagSet("live", flag.ExitOnError)
 			fl.Bool("info", false, "get live room info")
 			fl.String("set-title", "", "update live title")

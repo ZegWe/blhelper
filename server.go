@@ -141,12 +141,12 @@ func httpStartLive(a *App) http.HandlerFunc {
 		rtmp, err := a.StartLive(r.FormValue("area"))
 		if err != nil {
 			msg, _ := NewResponse(ResponseMsg{
-				Code: HTTPCodeFail,
+				Code:         HTTPCodeFail,
 				ErrorMessage: err.Error(),
 			})
 			rw.Write(msg)
-		}else {
-			msg,_:=NewResponse(ResponseMsg{
+		} else {
+			msg, _ := NewResponse(ResponseMsg{
 				Code: HTTPCodeSuccess,
 				Data: ResponseData{
 					Rtmp: rtmp,
@@ -161,13 +161,13 @@ func httpStopLive(a *App) http.HandlerFunc {
 		rw.Header().Set("Content-Type", "text/json")
 		err := a.StopLive()
 		if err != nil {
-			msg,_:=NewResponse(ResponseMsg{
-				Code: HTTPCodeFail,
+			msg, _ := NewResponse(ResponseMsg{
+				Code:         HTTPCodeFail,
 				ErrorMessage: err.Error(),
 			})
 			rw.Write(msg)
-		}else {
-			msg,_:=NewResponse(ResponseMsg{
+		} else {
+			msg, _ := NewResponse(ResponseMsg{
 				Code: HTTPCodeSuccess,
 				Data: ResponseData{
 					Message: "live stopped",
