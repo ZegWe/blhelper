@@ -1,0 +1,4 @@
+.vscode/
+test/
+.DS_Store
+cmd/blhelper/blhelper
